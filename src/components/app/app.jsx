@@ -28,14 +28,15 @@ import {
   TextLosing,
   ButtonResult,
 } from './style';
+import { useShowResult } from './use-show-result';
 
-function comparingArrays(arrUser, arrGenerated) {
-  const newSet = new Set();
-  const sharedArr = [...arrUser, ...arrGenerated];
-  sharedArr.forEach((num) => newSet.add(num));
+// function comparingArrays(arrUser, arrGenerated) {
+//   const newSet = new Set();
+//   const sharedArr = [...arrUser, ...arrGenerated];
+//   sharedArr.forEach((num) => newSet.add(num));
 
-  return newSet;
-}
+//   return newSet;
+// }
 
 function App() {
   const [selectFirstField, setSelectFirstField] = useState([]);
@@ -43,25 +44,26 @@ function App() {
   const [filledFieldFirst, setFilledFieldFirst] = useState(false);
   const [filledFieldSecond, setFilledFieldSecond] = useState(false);
   const [activateButton, setActivateButton] = useState(false);
-  const [showPrize, setShowPrize] = useState(false);
-  const [losingGame, setLosingGame] = useState(false);
+  // const [showPrize, setShowPrize] = useState(false);
+  // const [losingGame, setLosingGame] = useState(false);
   const [iconBlur, setIconBlur] = useState(false);
+
+  const {showPrize, losingGame, showResult} = useShowResult({selectFirstField, selectSecondField, activateButton});
 
   useEffect(() => {
     filledFieldFirst && filledFieldSecond && setActivateButton(true);
   }, [filledFieldFirst, filledFieldSecond]);
 
-  function showResult() {
-    if (!activateButton) return false;
+  // function showResult() {
+    // if (!activateButton) return false;
 
-    const resultFirstField = comparingArrays(selectFirstField, FIRST_RANDOM_ARR);
-    const resultSecondField = comparingArrays(selectSecondField, SECOND_RANDOM_ARR);
+    // const resultFirstField = comparingArrays(selectFirstField, FIRST_RANDOM_ARR);
+    // const resultSecondField = comparingArrays(selectSecondField, SECOND_RANDOM_ARR);
 
-    if (resultFirstField.size <= 12) return setShowPrize(true);
-    if (resultFirstField.size === 13 && resultSecondField.size === 1)
-      return setShowPrize(true);
-    return setLosingGame(true);
-  }
+    // if (resultFirstField.size <= 12) return setShowPrize(true);
+    // if (resultFirstField.size === 13 && resultSecondField.size === 1) return setShowPrize(true);
+    // return setLosingGame(true);
+  // }
 
   function clickMagicWand() {
     setSelectFirstField(randomlyGeneratedArr(NUMBERS_FIRST_FIELD));
@@ -71,6 +73,8 @@ function App() {
     setFilledFieldFirst(true);
     setFilledFieldSecond(true);
   }
+
+
 
   return (
     <>
