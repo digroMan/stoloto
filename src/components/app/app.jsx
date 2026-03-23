@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
-import './App.css'
-import FieldContainer from './components/Field'
-import Icon from './components/TicketIcon'
-import TicketNumber from './components/TicketNumber'
+import './app.css'
+import FieldContainer from '../field/field'
+import Icon from '../ticket-icon/ticket-icon'
+import TicketNumber from '../ticket-number/ticket-number'
 import { 
   NUMBERS_FIRST_FIELD, 
   NUMBERS_SECOND_FIELD, 
@@ -12,14 +12,14 @@ import {
   QUANTITY_SECOND_FIELD,
   WINNING_PHRASE,
   LOSING_PHRASE
-} from './constants'
+} from '../../constants'
 import { 
   FIRST_RANDOM_ARR, 
   SECOND_RANDOM_ARR, 
   randomlyGeneratedArr
-} from './randomArr'
+} from '../../randomArr'
 
-import magicWand from '../public/magicWand.svg'
+import magicWand from '../../../public/magicWand.svg'
 import { useEffect, useState } from 'react'
 
 const fontDefault = css`
