@@ -1,7 +1,4 @@
-import { 
-    NUMBERS_FIRST_FIELD, 
-    NUMBERS_SECOND_FIELD, 
-} from './constants'
+import { NUMBERS_FIRST_FIELD, NUMBERS_SECOND_FIELD } from './constants';
 
 export const FIRST_RANDOM_ARR = randomlyGeneratedArr(NUMBERS_FIRST_FIELD);
 export const SECOND_RANDOM_ARR = randomlyGeneratedArr(NUMBERS_SECOND_FIELD);

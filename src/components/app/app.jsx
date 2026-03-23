@@ -1,43 +1,43 @@
-import styled, { css } from 'styled-components'
-import './app.css'
-import FieldContainer from '../field/field'
-import Icon from '../ticket-icon/ticket-icon'
-import TicketNumber from '../ticket-number/ticket-number'
-import { 
-  NUMBERS_FIRST_FIELD, 
-  NUMBERS_SECOND_FIELD, 
-  TEXT_FIRST_FIELD, 
+import styled, { css } from 'styled-components';
+import './app.css';
+import FieldContainer from '../field/field';
+import Icon from '../ticket-icon/ticket-icon';
+import TicketNumber from '../ticket-number';
+import {
+  NUMBERS_FIRST_FIELD,
+  NUMBERS_SECOND_FIELD,
+  TEXT_FIRST_FIELD,
   TEXT_SECOND_FIELD,
   QUANTITY_FIRST_FIELD,
   QUANTITY_SECOND_FIELD,
   WINNING_PHRASE,
-  LOSING_PHRASE
-} from '../../constants'
-import { 
-  FIRST_RANDOM_ARR, 
-  SECOND_RANDOM_ARR, 
-  randomlyGeneratedArr
-} from '../../randomArr'
+  LOSING_PHRASE,
+} from '../../constants';
+import {
+  FIRST_RANDOM_ARR,
+  SECOND_RANDOM_ARR,
+  randomlyGeneratedArr,
+} from '../../randomArr';
 
-import magicWand from '../../../public/magicWand.svg'
-import { useEffect, useState } from 'react'
+import magicWand from '../../../public/magicWand.svg';
+import { useEffect, useState } from 'react';
 
 const fontDefault = css`
-    font-size: 4.38vw;
-    font-weight: 300;
-`
+  font-size: 4.38vw;
+  font-weight: 300;
+`;
 
 const ContainerBox = styled.div`
   padding-top: 5.31vw;
   padding-left: 3.75vw;
   padding-right: 3.75vw;
-`
+`;
 
 const GameTicket = styled.div`
   padding: 4.38vw 2.24vw 7.5vw 3.54vw;
-  border-radius: .94vw;
+  border-radius: 0.94vw;
   background-color: #fff;
-`
+`;
 
 const TicketTitle = styled.div`
   width: 100%;
@@ -46,18 +46,18 @@ const TicketTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
+`;
 
 const TextСongratulations = styled.h3`
-    margin-bottom: 86.88vw;
-    ${fontDefault};
+  margin-bottom: 86.88vw;
+  ${fontDefault};
 `;
 
 const TextLosing = styled.h4`
-    text-align: center;
-    margin-bottom: 3vw;
-    ${fontDefault};
-`
+  text-align: center;
+  margin-bottom: 3vw;
+  ${fontDefault};
+`;
 
 const ButtonResult = styled.button`
   display: block;
@@ -66,58 +66,55 @@ const ButtonResult = styled.button`
   margin: auto;
   padding: 0;
   border-radius: 12.5vw;
-  border: solid .31vw #DDD;
+  border: solid 0.31vw #ddd;
   background: none;
   font-size: 4.38vw;
   color: #000;
   font-weight: 400;
-  pointer-events: ${(props) => props.$active ? '' : 'none'};
+  pointer-events: ${(props) => (props.$active ? '' : 'none')};
+`;
 
-`
-
-function comparingArrays(arrUser, arrGenerated){
+function comparingArrays(arrUser, arrGenerated) {
   const newSet = new Set();
-  const sharedArr = [...arrUser, ...arrGenerated]
-  sharedArr.forEach(num => newSet.add(num))
+  const sharedArr = [...arrUser, ...arrGenerated];
+  sharedArr.forEach((num) => newSet.add(num));
 
   return newSet;
 }
 
 function App() {
   const [selectFirstField, setSelectFirstField] = useState([]);
-  const [selectSecondField, setSelectSecondField] = useState([])
+  const [selectSecondField, setSelectSecondField] = useState([]);
   const [filledFieldFirst, setFilledFieldFirst] = useState(false);
   const [filledFieldSecond, setFilledFieldSecond] = useState(false);
-  const [activateButton, setActivateButton] = useState(false)
+  const [activateButton, setActivateButton] = useState(false);
   const [showPrize, setShowPrize] = useState(false);
   const [losingGame, setLosingGame] = useState(false);
   const [iconBlur, setIconBlur] = useState(false);
-  
+
   useEffect(() => {
     filledFieldFirst && filledFieldSecond && setActivateButton(true);
-  }, [
-    filledFieldFirst,
-    filledFieldSecond,
-  ])
+  }, [filledFieldFirst, filledFieldSecond]);
 
-  function showResult(){
-    if(!activateButton) return false;
+  function showResult() {
+    if (!activateButton) return false;
 
-    const resultFirstField = comparingArrays(selectFirstField,FIRST_RANDOM_ARR);
-    const resultSecondField = comparingArrays(selectSecondField,SECOND_RANDOM_ARR);
-  
-    if(resultFirstField.size <= 12) return setShowPrize(true);
-    if(resultFirstField.size === 13 && resultSecondField.size === 1) return setShowPrize(true);
-    return setLosingGame(true)
+    const resultFirstField = comparingArrays(selectFirstField, FIRST_RANDOM_ARR);
+    const resultSecondField = comparingArrays(selectSecondField, SECOND_RANDOM_ARR);
+
+    if (resultFirstField.size <= 12) return setShowPrize(true);
+    if (resultFirstField.size === 13 && resultSecondField.size === 1)
+      return setShowPrize(true);
+    return setLosingGame(true);
   }
-  
-  function clickMagicWand(){
+
+  function clickMagicWand() {
     setSelectFirstField(randomlyGeneratedArr(NUMBERS_FIRST_FIELD));
     setSelectSecondField(randomlyGeneratedArr(NUMBERS_SECOND_FIELD));
-    setIconBlur(true)
-    
-    setFilledFieldFirst(true)
-    setFilledFieldSecond(true)
+    setIconBlur(true);
+
+    setFilledFieldFirst(true);
+    setFilledFieldSecond(true);
   }
 
   return (
@@ -133,10 +130,9 @@ function App() {
               handlerClick={clickMagicWand}
             />
           </TicketTitle>
-          {showPrize ? 
-            (
-              <TextСongratulations>{WINNING_PHRASE}</TextСongratulations>
-            ) : (
+          {showPrize ? (
+            <TextСongratulations>{WINNING_PHRASE}</TextСongratulations>
+          ) : (
             <div>
               <FieldContainer
                 numbers={NUMBERS_FIRST_FIELD}
@@ -157,19 +153,15 @@ function App() {
                 blockRandomGen={setIconBlur}
               />
               {losingGame && <TextLosing>{LOSING_PHRASE}</TextLosing>}
-              <ButtonResult
-                $active={activateButton}
-                onClick={showResult}
-              >
+              <ButtonResult $active={activateButton} onClick={showResult}>
                 Показать результат
               </ButtonResult>
             </div>
-            )
-          }
+          )}
         </GameTicket>
       </ContainerBox>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
