@@ -12,11 +12,6 @@ import {
   WINNING_PHRASE,
   LOSING_PHRASE,
 } from '../../constants';
-import {
-  FIRST_RANDOM_ARR,
-  SECOND_RANDOM_ARR,
-  randomlyGeneratedArr,
-} from '../../randomArr';
 
 import magicWand from '../../../public/magicWand.svg';
 import { useEffect, useState } from 'react';
@@ -28,15 +23,8 @@ import {
   TextLosing,
   ButtonResult,
 } from './style';
-import { useShowResult } from './use-show-result';
-
-// function comparingArrays(arrUser, arrGenerated) {
-//   const newSet = new Set();
-//   const sharedArr = [...arrUser, ...arrGenerated];
-//   sharedArr.forEach((num) => newSet.add(num));
-
-//   return newSet;
-// }
+import { useShowResult } from '../../hooks/use-show-result';
+import { randomlyGeneratedArr } from '../../helpers';
 
 function App() {
   const [selectFirstField, setSelectFirstField] = useState([]);
@@ -44,26 +32,17 @@ function App() {
   const [filledFieldFirst, setFilledFieldFirst] = useState(false);
   const [filledFieldSecond, setFilledFieldSecond] = useState(false);
   const [activateButton, setActivateButton] = useState(false);
-  // const [showPrize, setShowPrize] = useState(false);
-  // const [losingGame, setLosingGame] = useState(false);
   const [iconBlur, setIconBlur] = useState(false);
 
-  const {showPrize, losingGame, showResult} = useShowResult({selectFirstField, selectSecondField, activateButton});
+  const { showPrize, losingGame, showResult } = useShowResult({
+    selectFirstField,
+    selectSecondField,
+    activateButton,
+  });
 
   useEffect(() => {
     filledFieldFirst && filledFieldSecond && setActivateButton(true);
   }, [filledFieldFirst, filledFieldSecond]);
-
-  // function showResult() {
-    // if (!activateButton) return false;
-
-    // const resultFirstField = comparingArrays(selectFirstField, FIRST_RANDOM_ARR);
-    // const resultSecondField = comparingArrays(selectSecondField, SECOND_RANDOM_ARR);
-
-    // if (resultFirstField.size <= 12) return setShowPrize(true);
-    // if (resultFirstField.size === 13 && resultSecondField.size === 1) return setShowPrize(true);
-    // return setLosingGame(true);
-  // }
 
   function clickMagicWand() {
     setSelectFirstField(randomlyGeneratedArr(NUMBERS_FIRST_FIELD));
@@ -73,8 +52,6 @@ function App() {
     setFilledFieldFirst(true);
     setFilledFieldSecond(true);
   }
-
-
 
   return (
     <>
