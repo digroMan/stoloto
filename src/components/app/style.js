@@ -1,23 +1,23 @@
 import styled, { css } from 'styled-components';
 
-const fontDefault = css`
+export const fontDefault = css`
   font-size: 4.38vw;
   font-weight: 300;
 `;
 
-const ContainerBox = styled.div`
+export const ContainerBox = styled.div`
   padding-top: 5.31vw;
   padding-left: 3.75vw;
   padding-right: 3.75vw;
 `;
 
-const GameTicket = styled.div`
+export const GameTicket = styled.div`
   padding: 4.38vw 2.24vw 7.5vw 3.54vw;
   border-radius: 0.94vw;
   background-color: #fff;
 `;
 
-const TicketTitle = styled.div`
+export const TicketTitle = styled.div`
   width: 100%;
   padding: 0 1.5vw;
   margin-bottom: 3.75vw;
@@ -26,18 +26,18 @@ const TicketTitle = styled.div`
   justify-content: space-between;
 `;
 
-const TextСongratulations = styled.h3`
+export const TextСongratulations = styled.h3`
   margin-bottom: 86.88vw;
   ${fontDefault};
 `;
 
-const TextLosing = styled.h4`
+export const TextLosing = styled.h4`
   text-align: center;
   margin-bottom: 3vw;
   ${fontDefault};
 `;
 
-const ButtonResult = styled.button`
+export const ButtonResult = styled.button`
   display: block;
   width: 55.63vw;
   height: 14.14vw;
@@ -51,12 +51,3 @@ const ButtonResult = styled.button`
   font-weight: 400;
   pointer-events: ${(props) => (props.$active ? '' : 'none')};
 `;
-
-export {
-  ButtonResult,
-  ContainerBox,
-  GameTicket,
-  TextLosing,
-  TextСongratulations,
-  TicketTitle,
-};

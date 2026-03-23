@@ -1,7 +1,6 @@
 import './app.css';
-import FieldContainer from '../field/field';
-import Icon from '../ticket-icon/ticket-icon';
-import TicketNumber from '../ticket-number/ticket-number';
+import { Icon } from '../ticket-icon';
+import { TicketNumber } from '../ticket-number';
 import { WINNING_PHRASE, LOSING_PHRASE } from '../../constants';
 
 import magicWand from '../../../public/magicWand.svg';
@@ -16,6 +15,7 @@ import {
 } from './style';
 import { useShowResult, useSelectFields } from '../../hooks';
 import { getFieldProps } from './app.props';
+import { Field } from '../field';
 
 function App() {
   const [filledFieldFirst, setFilledFieldFirst] = useState(false);
@@ -61,7 +61,7 @@ function App() {
           <TextСongratulations>{WINNING_PHRASE}</TextСongratulations>
         ) : (
           <div>
-            <FieldContainer
+            <Field
               {...getFieldProps({
                 fieldType: 'large',
                 handlerClick: setSelectFirstField,
@@ -70,7 +70,7 @@ function App() {
                 blockRandomGen: setIconBlur,
               })}
             />
-            <FieldContainer
+            <Field
               {...getFieldProps({
                 fieldType: 'small',
                 handlerClick: setSelectSecondField,
