@@ -24,15 +24,25 @@ import {
   ButtonResult,
 } from './style';
 import { useShowResult } from '../../hooks/use-show-result';
-import { randomlyGeneratedArr } from '../../helpers';
+import { useSelectFields } from '../../hooks/ues-select-fields';
 
 function App() {
-  const [selectFirstField, setSelectFirstField] = useState([]);
-  const [selectSecondField, setSelectSecondField] = useState([]);
   const [filledFieldFirst, setFilledFieldFirst] = useState(false);
   const [filledFieldSecond, setFilledFieldSecond] = useState(false);
   const [activateButton, setActivateButton] = useState(false);
   const [iconBlur, setIconBlur] = useState(false);
+
+  const {
+    selectFirstField,
+    selectSecondField,
+    generatedRandomSelect,
+    setSelectFirstField,
+    setSelectSecondField,
+  } = useSelectFields({
+    setIconBlur,
+    setFilledFieldFirst,
+    setFilledFieldSecond,
+  });
 
   const { showPrize, losingGame, showResult } = useShowResult({
     selectFirstField,
@@ -44,15 +54,6 @@ function App() {
     filledFieldFirst && filledFieldSecond && setActivateButton(true);
   }, [filledFieldFirst, filledFieldSecond]);
 
-  function clickMagicWand() {
-    setSelectFirstField(randomlyGeneratedArr(NUMBERS_FIRST_FIELD));
-    setSelectSecondField(randomlyGeneratedArr(NUMBERS_SECOND_FIELD));
-    setIconBlur(true);
-
-    setFilledFieldFirst(true);
-    setFilledFieldSecond(true);
-  }
-
   return (
     <>
       <ContainerBox>
@@ -63,7 +64,7 @@ function App() {
               imgPath={magicWand}
               alt={'Icon'}
               blur={iconBlur}
-              handlerClick={clickMagicWand}
+              handlerClick={generatedRandomSelect}
             />
           </TicketTitle>
           {showPrize ? (
