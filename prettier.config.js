@@ -9,11 +9,6 @@ const config = {
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
-  overriders: [
-    {
-      files: ['*-*.js'],
-    }
-  ]
 }
 
 export default config;
