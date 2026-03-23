@@ -1,3 +1,5 @@
+import { randomlyGeneratedArr } from './helpers';
+
 export const NUMBERS_FIRST_FIELD = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
 ];
@@ -19,3 +21,6 @@ export const QUANTITY_SECOND_FIELD = 1;
 
 export const WINNING_PHRASE = 'Ого, вы выиграли! Поздравляем!';
 export const LOSING_PHRASE = 'Вы проиграли! Перезагрузите страницу';
+
+export const FIRST_RANDOM_ARR = randomlyGeneratedArr(NUMBERS_FIRST_FIELD);
+export const SECOND_RANDOM_ARR = randomlyGeneratedArr(NUMBERS_SECOND_FIELD);

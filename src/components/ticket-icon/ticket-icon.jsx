@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { IconWrapper } from './style';
 
-const Icon = ({ blur, handlerClick, imgPath, alt }) => {
+export const Icon = ({ blur, handlerClick, imgPath, alt }) => {
   return (
     <IconWrapper $blur={blur} onClick={handlerClick}>
       <img src={imgPath} alt={alt} />
@@ -15,5 +15,3 @@ Icon.propTypes = {
   imgPath: PropTypes.string,
   alt: PropTypes.string,
 };
-
-export default Icon;

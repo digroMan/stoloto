@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Item } from './style';
 
-const ItemField = ({ number, eventClick, generated }) => {
+export const ItemField = ({ number, eventClick, generated }) => {
   const [selected, setSelected] = useState(false);
   return (
     <Item
@@ -22,5 +22,3 @@ ItemField.propTypes = {
   eventClick: PropTypes.func,
   generated: PropTypes.bool,
 };
-
-export default ItemField;

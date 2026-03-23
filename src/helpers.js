@@ -1,15 +1,18 @@
-import { NUMBERS_FIRST_FIELD, NUMBERS_SECOND_FIELD } from './constants';
+const comparingArrays = (arrUser, arrGenerated) => {
+  const newSet = new Set();
+  const sharedArr = [...arrUser, ...arrGenerated];
+  sharedArr.forEach((num) => newSet.add(num));
 
-export const FIRST_RANDOM_ARR = randomlyGeneratedArr(NUMBERS_FIRST_FIELD);
-export const SECOND_RANDOM_ARR = randomlyGeneratedArr(NUMBERS_SECOND_FIELD);
+  return newSet;
+};
 
-function randomlyGeneratedNum(arr) {
+const randomlyGeneratedNum = (arr) => {
   const index = Math.floor(Math.random() * arr.length);
   const number = arr[index];
   return number;
-}
+};
 
-export function randomlyGeneratedArr(arr) {
+const randomlyGeneratedArr = (arr) => {
   const result = [];
 
   if (arr.length === 2) result.push(randomlyGeneratedNum(arr));
@@ -26,4 +29,6 @@ export function randomlyGeneratedArr(arr) {
   }
 
   return result;
-}
+};
+
+export { comparingArrays, randomlyGeneratedArr };
