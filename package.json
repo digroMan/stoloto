@@ -31,13 +31,9 @@
     "prettier": "^3.8.1",
     "vite": "^5.2.0"
   },
-  "lint-staged":{
-  "./src/**/*.css": [
-    "prettier --write"
-  ],
-  "./src/**/*.{js, jsx}": [
-    "prettier --write"
-  ],
-  "**/*.{json, html, md}": "prettier --write"
-}
+  "lint-staged": {
+    "./src/**/*.css": "prettier --write",
+    "./src/**/*.{js,jsx}": "prettier --write",
+    "**/*.{json,html,md}": "prettier --write"
+  }
 }
