@@ -20,7 +20,7 @@ export const useSelectFields = ({
   };
 
   return {
-    selectFirstField,
+     selectFirstField,
     selectSecondField,
     setSelectFirstField,
     setSelectSecondField,
