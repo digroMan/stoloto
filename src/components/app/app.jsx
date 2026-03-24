@@ -1,9 +1,9 @@
 import './app.css';
-import { Icon } from '../ticket-icon';
-import { TicketNumber } from '../ticket-number';
-import { WINNING_PHRASE, LOSING_PHRASE } from '../../constants';
+import { Icon } from '@components/ticket-icon';
+import { TicketNumber } from '@components/ticket-number';
+import { WINNING_PHRASE, LOSING_PHRASE } from '@constants';
 
-import magicWand from '../../../public/magicWand.svg';
+import magicWand from '@public/magicWand.svg';
 import { useEffect, useState } from 'react';
 import {
   ContainerBox,
@@ -13,11 +13,11 @@ import {
   TextLosing,
   ButtonResult,
 } from './style';
-import { useShowResult, useSelectFields } from '../../hooks';
+import { useShowResult, useSelectFields } from '@hooks';
 import { getFieldProps } from './app.props';
-import { Field } from '../field';
+import { Field } from '@components/field';
 
-function App() {
+export function App() {
   const [filledFieldFirst, setFilledFieldFirst] = useState(false);
   const [filledFieldSecond, setFilledFieldSecond] = useState(false);
   const [activateButton, setActivateButton] = useState(false);
@@ -89,5 +89,3 @@ function App() {
     </ContainerBox>
   );
 }
-
-export default App;

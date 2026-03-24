@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { randomlyGeneratedArr } from '../helpers';
-import { NUMBERS_FIRST_FIELD, NUMBERS_SECOND_FIELD } from '../constants';
+import { NUMBERS_FIRST_FIELD, NUMBERS_SECOND_FIELD } from '@constants';
 
 export const useSelectFields = ({
   setIconBlur,

@@ -5,7 +5,7 @@ import {
   QUANTITY_SECOND_FIELD,
   TEXT_FIRST_FIELD,
   TEXT_SECOND_FIELD,
-} from '../../constants';
+} from '@constants';
 
 export const getFieldProps = ({ fieldType, ...props }) => {
   return {

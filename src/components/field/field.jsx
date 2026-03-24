@@ -1,4 +1,4 @@
-import { ItemField } from '../item-field';
+import { ItemField } from '@components/item-field';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { FieldContainer, FieldTitle, FieldDescription, FieldWrapper } from './style';
