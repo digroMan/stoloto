@@ -2,11 +2,10 @@ import './app.css';
 import { Icon } from '@components/ticket-icon';
 import { TicketNumber } from '@components/ticket-number';
 import { WINNING_PHRASE, LOSING_PHRASE } from '@constants';
-
+import styles from './app.module.css';
 import magicWand from '@public/magicWand.svg';
 import { useEffect, useState } from 'react';
 import {
-  ContainerBox,
   GameTicket,
   TicketTitle,
   TextСongratulations,
@@ -46,46 +45,51 @@ export function App() {
   }, [filledFieldFirst, filledFieldSecond]);
 
   return (
-    <ContainerBox>
-      <GameTicket>
-        <TicketTitle>
-          <TicketNumber>Билет 1</TicketNumber>
-          <Icon
-            imgPath={magicWand}
-            alt={'Icon'}
-            blur={iconBlur}
-            handlerClick={generatedRandomSelect}
-          />
-        </TicketTitle>
-        {showPrize ? (
-          <TextСongratulations>{WINNING_PHRASE}</TextСongratulations>
-        ) : (
-          <div>
-            <Field
-              {...getFieldProps({
-                fieldType: 'large',
-                handlerClick: setSelectFirstField,
-                storageField: selectFirstField,
-                filledField: setFilledFieldFirst,
-                blockRandomGen: setIconBlur,
-              })}
-            />
-            <Field
-              {...getFieldProps({
-                fieldType: 'small',
-                handlerClick: setSelectSecondField,
-                storageField: selectSecondField,
-                filledField: setFilledFieldSecond,
-                blockRandomGen: setIconBlur,
-              })}
-            />
-            {losingGame && <TextLosing>{LOSING_PHRASE}</TextLosing>}
-            <ButtonResult $active={activateButton} onClick={showResult}>
-              Показать результат
-            </ButtonResult>
-          </div>
-        )}
-      </GameTicket>
-    </ContainerBox>
+    <div className='container-box'>
+      <div className={styles.ticket}>
+        <div className={styles.ticket_container}>
+          <div className={styles.ticket}></div>
+          <GameTicket>
+            <TicketTitle>
+              <TicketNumber>Билет 1</TicketNumber>
+              <Icon
+                imgPath={magicWand}
+                alt={'Icon'}
+                blur={iconBlur}
+                handlerClick={generatedRandomSelect}
+              />
+            </TicketTitle>
+            {showPrize ? (
+              <TextСongratulations>{WINNING_PHRASE}</TextСongratulations>
+            ) : (
+              <div>
+                <Field
+                  {...getFieldProps({
+                    fieldType: 'large',
+                    handlerClick: setSelectFirstField,
+                    storageField: selectFirstField,
+                    filledField: setFilledFieldFirst,
+                    blockRandomGen: setIconBlur,
+                  })}
+                />
+                <Field
+                  {...getFieldProps({
+                    fieldType: 'small',
+                    handlerClick: setSelectSecondField,
+                    storageField: selectSecondField,
+                    filledField: setFilledFieldSecond,
+                    blockRandomGen: setIconBlur,
+                  })}
+                />
+                {losingGame && <TextLosing>{LOSING_PHRASE}</TextLosing>}
+                <ButtonResult $active={activateButton} onClick={showResult}>
+                  Показать результат
+                </ButtonResult>
+              </div>
+            )}
+          </GameTicket>
+        </div>
+      </div>
+    </div>
   );
 }

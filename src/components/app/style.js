@@ -10,18 +10,18 @@ export const fontDefault = css`
   `)}
 `;
 
-export const ContainerBox = styled.div`
-  padding-top: 5.31vw;
-  padding-left: 3.75vw;
-  padding-right: 3.75vw;
+// export const ContainerBox = styled.div`
+//   padding-top: 5.31vw;
+//   padding-left: 3.75vw;
+//   padding-right: 3.75vw;
 
-  ${media.desktop(`
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `)}
-`;
+//   ${media.desktop(`
+//     padding: 0;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//   `)}
+// `;
 
 export const GameTicket = styled.div`
   padding: 4.38vw 2.24vw 7.5vw 3.54vw;

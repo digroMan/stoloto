@@ -121,3 +121,15 @@ figcaption {
 .blur {
   filter: blur(1px);
 }
+
+.container-box {
+  width: 100%;
+  padding: 3.3vw;
+}
+
+@media (min-width: 1240px) {
+  .container-box {
+    width: 1240px;
+    margin-inline: auto;
+  }
+}
