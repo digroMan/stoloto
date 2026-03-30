@@ -31,4 +31,8 @@ const randomlyGeneratedArr = (arr) => {
   return result;
 };
 
-export { comparingArrays, randomlyGeneratedArr };
+const media = {
+  desktop: (...args) => `@media (min-width: 767px){${args}}`,
+};
+
+export { comparingArrays, randomlyGeneratedArr, media };

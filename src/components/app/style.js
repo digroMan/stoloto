@@ -1,20 +1,38 @@
 import styled, { css } from 'styled-components';
+import { media } from '@helpers';
 
 export const fontDefault = css`
   font-size: 4.38vw;
   font-weight: 300;
+
+  ${media.desktop(`
+    font-size: 16px
+  `)}
 `;
 
 export const ContainerBox = styled.div`
   padding-top: 5.31vw;
   padding-left: 3.75vw;
   padding-right: 3.75vw;
+
+  ${media.desktop(`
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `)}
 `;
 
 export const GameTicket = styled.div`
   padding: 4.38vw 2.24vw 7.5vw 3.54vw;
   border-radius: 0.94vw;
   background-color: #fff;
+  ${media.desktop(`
+    width: 420px;
+    padding-inline: 10px;
+    padding-block: 10px;
+    border-radius: 25px;
+  `)}
 `;
 
 export const TicketTitle = styled.div`
@@ -24,17 +42,32 @@ export const TicketTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  ${media.desktop(`
+    padding-inline: 10px;
+    margin-bottom: 10px;
+  `)}
 `;
 
 export const TextСongratulations = styled.h3`
   margin-bottom: 86.88vw;
+
   ${fontDefault};
+
+  ${media.desktop(`
+    margin-bottom: 25px;
+  `)}
 `;
 
 export const TextLosing = styled.h4`
   text-align: center;
   margin-bottom: 3vw;
+
   ${fontDefault};
+
+  ${media.desktop(`
+    margin-bottom: 10px;
+  `)}
 `;
 
 export const ButtonResult = styled.button`
@@ -50,4 +83,12 @@ export const ButtonResult = styled.button`
   color: #000;
   font-weight: 400;
   pointer-events: ${(props) => (props.$active ? '' : 'none')};
+
+  ${media.desktop(`
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    border-width: 1px;
+    font-size: 16px;
+  `)}
 `;
