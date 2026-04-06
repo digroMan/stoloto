@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { media } from '@helpers';
+import { media } from '../../utils/helpers';
 
 export const fontDefault = css`
   font-size: 4.38vw;

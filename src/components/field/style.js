@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '@helpers';
+import { media } from '../../utils/helpers';
 
 const FieldContainer = styled.div`
   width: 100%;

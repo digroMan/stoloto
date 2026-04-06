@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '@helpers';
+import { media } from '../../utils/helpers';
 
 export const Number = styled.h4`
   font-size: 5vw;

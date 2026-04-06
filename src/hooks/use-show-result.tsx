@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
-import { comparingArrays } from '@helpers';
-import { FIRST_RANDOM_ARR, SECOND_RANDOM_ARR } from '@constants';
+import { comparingArrays } from '../utils/helpers';
+import { FIRST_RANDOM_ARR, SECOND_RANDOM_ARR } from '../utils/constants';
 
 export const useShowResult = ({
   selectFirstField,

@@ -1,0 +1,28 @@
+.button {
+  width: 12.2vw;
+  height: 12.2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.38vw;
+  border-radius: 1.56vw;
+  border: solid 0.31vw #ddd;
+  font-weight: 400;
+}
+
+@media (min-width: 1240px) {
+  .button {
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+    border-radius: 14px;
+    border-width: 2px;
+  }
+}
+
+.button_selected {
+  width: 10.63vw;
+  height: 10.63vw;
+  transform: scale(0.9);
+  background-color: #ffd205;
+}

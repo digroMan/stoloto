@@ -12,7 +12,7 @@ const randomlyGeneratedNum = (arr) => {
   return number;
 };
 
-const randomlyGeneratedArr = (arr) => {
+const randomlyGeneratedArr = (arr: number[]): number[] => {
   const result = [];
 
   if (arr.length === 2) result.push(randomlyGeneratedNum(arr));

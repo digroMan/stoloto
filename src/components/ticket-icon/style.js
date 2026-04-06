@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '@helpers';
+import { media } from '../../utils/helpers';
 
 export const IconWrapper = styled.div`
   width: 5.63vw;

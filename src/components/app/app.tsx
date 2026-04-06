@@ -1,9 +1,4 @@
 import './app.css';
-import { Icon } from '@components/ticket-icon';
-import { TicketNumber } from '@components/ticket-number';
-import { WINNING_PHRASE, LOSING_PHRASE } from '@constants';
-
-import magicWand from '@public/magicWand.svg';
 import { useEffect, useState } from 'react';
 import {
   ContainerBox,
@@ -13,9 +8,12 @@ import {
   TextLosing,
   ButtonResult,
 } from './style';
-import { useShowResult, useSelectFields } from '@hooks';
+import { Icon } from '../ticket-icon';
+import { TicketNumber } from '../ticket-number';
+import { Field } from '../field';
+import { LOSING_PHRASE, WINNING_PHRASE } from '../../utils/constants';
+import { useSelectFields, useShowResult } from '../../hooks';
 import { getFieldProps } from './app.props';
-import { Field } from '@components/field';
 
 export function App() {
   const [filledFieldFirst, setFilledFieldFirst] = useState(false);
@@ -51,7 +49,7 @@ export function App() {
         <TicketTitle>
           <TicketNumber>Билет 1</TicketNumber>
           <Icon
-            imgPath={magicWand}
+            imgPath={'/magic-wand.svg'}
             alt={'Icon'}
             blur={iconBlur}
             handlerClick={generatedRandomSelect}
