@@ -3,8 +3,8 @@ import { TTextField } from '../../utils/types';
 
 export type TGetFieldProps = {
   fieldType: string;
-  handlerClick: React.Dispatch<React.SetStateAction<number[] | undefined>>;
-  storageField: number[] | undefined;
+  handlerClick: React.Dispatch<React.SetStateAction<number[]>>;
+  storageField: number[];
   filledField: React.Dispatch<React.SetStateAction<boolean>>;
   blockRandomGen: React.Dispatch<React.SetStateAction<boolean>>;
 };

@@ -1,4 +1,4 @@
-const comparingArrays = (arrUser, arrGenerated) => {
+const comparingArrays = (arrUser: number[], arrGenerated: number[]) => {
   const newSet = new Set();
   const sharedArr = [...arrUser, ...arrGenerated];
   sharedArr.forEach((num) => newSet.add(num));
@@ -6,7 +6,7 @@ const comparingArrays = (arrUser, arrGenerated) => {
   return newSet;
 };
 
-const randomlyGeneratedNum = (arr) => {
+const randomlyGeneratedNum = (arr: number[]) => {
   const index = Math.floor(Math.random() * arr.length);
   const number = arr[index];
   return number;
@@ -32,7 +32,7 @@ const randomlyGeneratedArr = (arr: number[]): number[] => {
 };
 
 const media = {
-  desktop: (...args) => `@media (min-width: 767px){${args}}`,
+  desktop: (...args: string[]) => `@media (min-width: 767px){${args}}`,
 };
 
 export { comparingArrays, randomlyGeneratedArr, media };

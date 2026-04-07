@@ -13,8 +13,8 @@ export const useSelectFields = ({
   setFilledFieldFirst,
   setFilledFieldSecond,
 }: TUseSelectFields) => {
-  const [selectFirstField, setSelectFirstField] = useState<number[]>();
-  const [selectSecondField, setSelectSecondField] = useState<number[]>();
+  const [selectFirstField, setSelectFirstField] = useState<number[]>([]);
+  const [selectSecondField, setSelectSecondField] = useState<number[]>([]);
 
   const generatedRandomSelect = () => {
     setSelectFirstField(randomlyGeneratedArr(NUMBERS_FIRST_FIELD));

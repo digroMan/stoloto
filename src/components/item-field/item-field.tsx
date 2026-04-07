@@ -3,7 +3,7 @@ import styles from './item-field.module.css';
 
 type TItemFieldProps = {
   number: number;
-  handlerClick: (element: MouseEvent, arrLength: number | undefined) => void;
+  handlerClick: (number: number) => void;
   generated: Boolean;
 };
 
@@ -12,9 +12,8 @@ export const ItemField = ({ number, handlerClick, generated }: TItemFieldProps) 
   return (
     <button
       className={styles.button}
-      // $selected={generated ? true : selected}
-      onClick={(event): void => {
-        handlerClick(event?.currentTarget);
+      onClick={() => {
+        handlerClick(number);
         setSelected(true);
       }}
       type='button'

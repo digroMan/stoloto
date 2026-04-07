@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FieldContainer, FieldTitle, FieldDescription, FieldWrapper } from './style';
 import { ItemField } from '../item-field';
 import { TFieldProps } from './types';
+import styles from './field.module.css';
+import clsx from 'clsx';
 
 export const Field = ({
   numbers,
@@ -14,45 +15,30 @@ export const Field = ({
 }: TFieldProps): React.JSX.Element => {
   const [blur, setBlur] = useState(false);
 
-  // const addNumberArr = (element: MouseEvent, arrLength: number | undefined) => {
-  //   if (arrLength === 0) blockRandomGen(true);
-  //   handlerClick((preArr) => [...preArr, parseInt(element?.target?.textContent)]);
-  //   if (arrLength === quantity - 1) {
-  //     setBlur(true);
-  //     filledField(true);
-  //   }
-  // };
-
-  const addNumberArr = (arrLength: number | undefined) => (element: MouseEvent) => {
-    console.log(arrLength);
-    console.log(element);
-    return () => {
-      console.log(arrLength);
-      console.log(element);
-      if (arrLength === 0) blockRandomGen(true);
-      handlerClick((preArr) => [...preArr, parseInt(element?.target?.textContent)]);
-      if (arrLength === quantity - 1) {
-        setBlur(true);
-        filledField(true);
-      }
-    };
+  const addNumberArr = (number: number) => {
+    if (storageField?.length === 0) blockRandomGen(true);
+    handlerClick((preArr) => [...preArr, number]);
+    if (storageField?.length === quantity - 1) {
+      setBlur(true);
+      filledField(true);
+    }
   };
 
   return (
-    <FieldContainer>
-      <FieldTitle>{text.title}</FieldTitle>
-      <FieldDescription>{text.description}</FieldDescription>
-      <FieldWrapper $filter={storageField?.length === quantity ? true : blur}>
+    <div className={styles.container}>
+      <h3 className={styles.title}>{text.title}</h3>
+      <p className={styles.description}>{text.description}</p>
+      <ul className={clsx(styles.list, blur && styles.list_blur)}>
         {numbers.map((number, index) => (
           <li key={index}>
             <ItemField
               number={number}
-              handlerClick={addNumberArr(storageField?.length)}
+              handlerClick={addNumberArr}
               generated={storageField?.some((item) => item === number)}
             />
           </li>
         ))}
-      </FieldWrapper>
-    </FieldContainer>
+      </ul>
+    </div>
   );
 };
