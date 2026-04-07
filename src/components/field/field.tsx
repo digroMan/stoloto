@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { ItemField } from '../item-field';
-import { TFieldProps } from './types';
 import styles from './field.module.css';
 import clsx from 'clsx';
+import { TReturnFieldProps } from '../app/types';
 
 export const Field = ({
   numbers,
@@ -12,7 +12,7 @@ export const Field = ({
   storageField,
   filledField,
   blockRandomGen,
-}: TFieldProps): React.JSX.Element => {
+}: TReturnFieldProps): React.JSX.Element => {
   const [blur, setBlur] = useState(false);
 
   const addNumberArr = (number: number) => {

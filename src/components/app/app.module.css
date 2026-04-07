@@ -1,76 +1,88 @@
-import styled, { css } from 'styled-components';
-import { media } from '../../utils/helpers';
-
-export const fontDefault = css`
-  font-size: 4.38vw;
-  font-weight: 300;
-
-  ${media.desktop(`
-    font-size: 16px
-  `)}
-`;
-
-export const ContainerBox = styled.div`
+.container {
   padding-top: 5.31vw;
   padding-left: 3.75vw;
   padding-right: 3.75vw;
+}
 
-  ${media.desktop(`
+@media (min-width: 1240px) {
+  .container {
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-  `)}
-`;
+  }
+}
 
-export const GameTicket = styled.div`
+.ticket {
   padding: 4.38vw 2.24vw 7.5vw 3.54vw;
   border-radius: 0.94vw;
   background-color: #fff;
-  ${media.desktop(`
+}
+
+@media (min-width: 1240px) {
+  .ticket {
     width: 420px;
     padding-inline: 10px;
     padding-block: 10px;
     border-radius: 25px;
-  `)}
-`;
+  }
+}
 
-export const TicketTitle = styled.div`
+.hgroup {
   width: 100%;
   padding: 0 1.5vw;
   margin-bottom: 3.75vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
 
-  ${media.desktop(`
+@media (min-width: 1240px) {
+  .hgroup {
     padding-inline: 10px;
     margin-bottom: 10px;
-  `)}
-`;
+  }
+}
 
-export const TextСongratulations = styled.h3`
+.title {
+  font-size: 5vw;
+  line-height: 1;
+}
+
+@media (min-width: 1240px) {
+  .title {
+    font-size: 16px;
+  }
+}
+
+.congratulation {
   margin-bottom: 86.88vw;
+  font-size: 4.38vw;
+  font-weight: 300;
+}
 
-  ${fontDefault};
-
-  ${media.desktop(`
+@media (min-width: 1240px) {
+  .congratulation {
     margin-bottom: 25px;
-  `)}
-`;
+    font-size: 16px;
+  }
+}
 
-export const TextLosing = styled.h4`
+.losing {
   text-align: center;
   margin-bottom: 3vw;
+  font-size: 4.38vw;
+  font-weight: 300;
+}
 
-  ${fontDefault};
-
-  ${media.desktop(`
+@media (min-width: 1240px) {
+  .losing {
     margin-bottom: 10px;
-  `)}
-`;
+    font-size: 16px;
+  }
+}
 
-export const ButtonResult = styled.button`
+.result {
   display: block;
   width: 55.63vw;
   height: 14.14vw;
@@ -82,13 +94,14 @@ export const ButtonResult = styled.button`
   font-size: 4.38vw;
   color: #000;
   font-weight: 400;
-  pointer-events: ${(props) => (props.$active ? '' : 'none')};
+}
 
-  ${media.desktop(`
+@media (min-width: 1240px) {
+  .result {
     width: 150px;
     height: 50px;
     border-radius: 15px;
     border-width: 1px;
     font-size: 16px;
-  `)}
-`;
+  }
+}

@@ -13,4 +13,7 @@ export type TReturnFieldProps = {
   numbers: number[];
   text: TTextField;
   quantity: number;
-};
+} & Pick<
+  TGetFieldProps,
+  'handlerClick' | 'storageField' | 'filledField' | 'blockRandomGen'
+>;

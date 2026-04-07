@@ -1,15 +1,7 @@
 import './app.css';
 import { useEffect, useState } from 'react';
-import {
-  ContainerBox,
-  GameTicket,
-  TicketTitle,
-  TextСongratulations,
-  TextLosing,
-  ButtonResult,
-} from './style';
+import styles from './app.module.css';
 import { Icon } from '../ticket-icon';
-import { TicketNumber } from '../ticket-number';
 import { Field } from '../field';
 import { LOSING_PHRASE, WINNING_PHRASE } from '../../utils/constants';
 import { useSelectFields, useShowResult } from '../../hooks';
@@ -44,19 +36,19 @@ export function App() {
   }, [filledFieldFirst, filledFieldSecond]);
 
   return (
-    <ContainerBox>
-      <GameTicket>
-        <TicketTitle>
-          <TicketNumber>Билет 1</TicketNumber>
+    <div className={styles.container}>
+      <div className={styles.ticket}>
+        <hgroup className={styles.hgroup}>
+          <h2 className={styles.title}>Билет 1</h2>
           <Icon
-            imgPath={'/magic-wand.svg'}
+            imgPath={'magic-wand.svg'}
             alt={'Icon'}
             blur={iconBlur}
             handlerClick={generatedRandomSelect}
           />
-        </TicketTitle>
+        </hgroup>
         {showPrize ? (
-          <TextСongratulations>{WINNING_PHRASE}</TextСongratulations>
+          <h3 className={styles.congratulation}>{WINNING_PHRASE}</h3>
         ) : (
           <div>
             <Field
@@ -77,13 +69,18 @@ export function App() {
                 blockRandomGen: setIconBlur,
               })}
             />
-            {losingGame && <TextLosing>{LOSING_PHRASE}</TextLosing>}
-            <ButtonResult $active={activateButton} onClick={showResult}>
+            {losingGame && <h3 className={styles.losing}>{LOSING_PHRASE}</h3>}
+            <button
+              className={styles.result}
+              disabled={!activateButton}
+              type='button'
+              onClick={showResult}
+            >
               Показать результат
-            </ButtonResult>
+            </button>
           </div>
         )}
-      </GameTicket>
-    </ContainerBox>
+      </div>
+    </div>
   );
 }
