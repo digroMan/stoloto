@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 type TItemFieldProps = {
   number: number;
-  handlerClick: (number: number) => void;
+  handlerClick: (_: number) => void;
   generated: boolean;
 };
 

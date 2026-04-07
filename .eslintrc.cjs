@@ -16,5 +16,11 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'error',
     'react/jsx-no-target-blank': 'off',
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        varsIgnorePattern: '^_',
+      },
+    ],
   },
 };
