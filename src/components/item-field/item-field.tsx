@@ -1,24 +1,24 @@
 import { useState } from 'react';
 import styles from './item-field.module.css';
+import clsx from 'clsx';
 
 type TItemFieldProps = {
   number: number;
   handlerClick: (number: number) => void;
-  generated: Boolean;
+  generated: boolean;
 };
 
 export const ItemField = ({ number, handlerClick, generated }: TItemFieldProps) => {
   const [selected, setSelected] = useState(false);
   return (
-    <button
-      className={styles.button}
+    <span
+      className={clsx(styles.item, selected && styles.item_selected)}
       onClick={() => {
         handlerClick(number);
         setSelected(true);
       }}
-      type='button'
     >
       {number}
-    </button>
+    </span>
   );
 };
