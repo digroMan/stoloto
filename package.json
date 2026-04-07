@@ -6,19 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint src/ --ext .js,.jsx --report-unused-disable-directives --max-warnings 0",
-    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,html,css,md}\"",
+    "lint": "eslint src/ --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0",
+    "prettier": "prettier --write \"src/**/*.{ts,tsx,ts,tsx,json,html,css,md}\"",
     "preview": "vite preview",
     "prepare": "husky"
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "redux": "^5.0.1",
     "styled-components": "^6.1.8",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.58.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.28",
@@ -36,7 +36,7 @@
   },
   "lint-staged": {
     "./src/**/*.css": "prettier --write",
-    "./src/**/*.{js,jsx}": "prettier --write",
+    "./src/**/*.{ts,tsx}": "prettier --write",
     "**/*.{json,html,md}": "prettier --write"
   }
 }

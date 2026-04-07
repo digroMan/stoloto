@@ -1,13 +1,12 @@
-import './app.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './app.module.css';
-import { Icon } from '../ticket-icon';
 import { Field } from '../field';
 import { LOSING_PHRASE, WINNING_PHRASE } from '../../utils/constants';
 import { useSelectFields, useShowResult } from '../../hooks';
 import { getFieldProps } from './app.props';
+import { ButtonGenerating } from '../button-generating';
 
-export function App() {
+export function App(): React.JSX.Element {
   const [filledFieldFirst, setFilledFieldFirst] = useState(false);
   const [filledFieldSecond, setFilledFieldSecond] = useState(false);
   const [activateButton, setActivateButton] = useState(false);
@@ -40,8 +39,8 @@ export function App() {
       <div className={styles.ticket}>
         <hgroup className={styles.hgroup}>
           <h2 className={styles.title}>Билет 1</h2>
-          <Icon
-            imgPath={'magic-wand.svg'}
+          <ButtonGenerating
+            imgPath={'magic-stick.svg'}
             alt={'Icon'}
             blur={iconBlur}
             handlerClick={generatedRandomSelect}

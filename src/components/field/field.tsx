@@ -14,8 +14,8 @@ export const Field = ({
   blockRandomGen,
 }: TReturnFieldProps): React.JSX.Element => {
   const [blur, setBlur] = useState(false);
-
-  const addNumberArr = (number: number) => {
+  console.log(quantity);
+  const addNumberArr = (number: number): void => {
     if (storageField?.length === 0) blockRandomGen(true);
     handlerClick((preArr) => [...preArr, number]);
     if (storageField?.length === quantity - 1) {
@@ -28,7 +28,13 @@ export const Field = ({
     <div className={styles.container}>
       <h3 className={styles.title}>{text.title}</h3>
       <p className={styles.description}>{text.description}</p>
-      <ul className={clsx(styles.list, blur && styles.list_blur)}>
+      <ul
+        className={clsx(
+          styles.list,
+          blur && styles.list_blur,
+          quantity === 1 && styles.list_small
+        )}
+      >
         {numbers.map((number, index) => (
           <li key={index}>
             <ItemField

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styles from './item-field.module.css';
 import clsx from 'clsx';
 
@@ -8,7 +8,11 @@ type TItemFieldProps = {
   generated: boolean;
 };
 
-export const ItemField = ({ number, handlerClick, generated }: TItemFieldProps) => {
+export const ItemField = ({
+  number,
+  handlerClick,
+  // generated
+}: TItemFieldProps): React.JSX.Element => {
   const [selected, setSelected] = useState(false);
   return (
     <span
