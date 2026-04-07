@@ -1,23 +1,12 @@
-import './app.css';
-import { Icon } from '@components/ticket-icon';
-import { TicketNumber } from '@components/ticket-number';
-import { WINNING_PHRASE, LOSING_PHRASE } from '@constants';
-
-import magicWand from '@public/magicWand.svg';
-import { useEffect, useState } from 'react';
-import {
-  ContainerBox,
-  GameTicket,
-  TicketTitle,
-  TextСongratulations,
-  TextLosing,
-  ButtonResult,
-} from './style';
-import { useShowResult, useSelectFields } from '@hooks';
+import React, { useEffect, useState } from 'react';
+import styles from './app.module.css';
+import { Field } from '../field';
+import { LOSING_PHRASE, WINNING_PHRASE } from '../../utils/constants';
+import { useSelectFields, useShowResult } from '../../hooks';
 import { getFieldProps } from './app.props';
-import { Field } from '@components/field';
+import { ButtonGenerating } from '../button-generating';
 
-export function App() {
+export function App(): React.JSX.Element {
   const [filledFieldFirst, setFilledFieldFirst] = useState(false);
   const [filledFieldSecond, setFilledFieldSecond] = useState(false);
   const [activateButton, setActivateButton] = useState(false);
@@ -46,19 +35,19 @@ export function App() {
   }, [filledFieldFirst, filledFieldSecond]);
 
   return (
-    <ContainerBox>
-      <GameTicket>
-        <TicketTitle>
-          <TicketNumber>Билет 1</TicketNumber>
-          <Icon
-            imgPath={magicWand}
+    <div className={styles.container}>
+      <div className={styles.ticket}>
+        <hgroup className={styles.hgroup}>
+          <h2 className={styles.title}>Билет 1</h2>
+          <ButtonGenerating
+            imgPath={'magic-stick.svg'}
             alt={'Icon'}
             blur={iconBlur}
             handlerClick={generatedRandomSelect}
           />
-        </TicketTitle>
+        </hgroup>
         {showPrize ? (
-          <TextСongratulations>{WINNING_PHRASE}</TextСongratulations>
+          <h3 className={styles.congratulation}>{WINNING_PHRASE}</h3>
         ) : (
           <div>
             <Field
@@ -79,13 +68,18 @@ export function App() {
                 blockRandomGen: setIconBlur,
               })}
             />
-            {losingGame && <TextLosing>{LOSING_PHRASE}</TextLosing>}
-            <ButtonResult $active={activateButton} onClick={showResult}>
+            {losingGame && <h3 className={styles.losing}>{LOSING_PHRASE}</h3>}
+            <button
+              className={styles.result}
+              disabled={!activateButton}
+              type='button'
+              onClick={showResult}
+            >
               Показать результат
-            </ButtonResult>
+            </button>
           </div>
         )}
-      </GameTicket>
-    </ContainerBox>
+      </div>
+    </div>
   );
 }

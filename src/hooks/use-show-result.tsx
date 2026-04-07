@@ -1,12 +1,24 @@
 import { useCallback, useState } from 'react';
-import { comparingArrays } from '../helpers';
-import { FIRST_RANDOM_ARR, SECOND_RANDOM_ARR } from '@constants';
+import { comparingArrays } from '../utils/helpers';
+import { FIRST_RANDOM_ARR, SECOND_RANDOM_ARR } from '../utils/constants';
+
+type TUseShowResultResult = {
+  showResult: () => boolean;
+  showPrize: boolean;
+  losingGame: boolean;
+};
+
+type TUseShowResultProps = {
+  selectFirstField: number[];
+  selectSecondField: number[];
+  activateButton: boolean;
+};
 
 export const useShowResult = ({
   selectFirstField,
   selectSecondField,
   activateButton,
-}) => {
+}: TUseShowResultProps): TUseShowResultResult => {
   const [showPrize, setShowPrize] = useState(false);
   const [losingGame, setLosingGame] = useState(false);
 

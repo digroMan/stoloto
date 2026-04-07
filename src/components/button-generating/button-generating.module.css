@@ -1,0 +1,25 @@
+.button {
+  width: 5.63vw;
+  box-sizing: content-box;
+}
+
+@media (min-width: 1240px) {
+  .button {
+    border: none;
+    padding: 0;
+    background: none;
+    outline: none;
+    width: 25px;
+    padding: 7px;
+  }
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.blur {
+  pointer-events: none;
+  opacity: 0.5;
+}
