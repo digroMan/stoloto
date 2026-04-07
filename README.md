@@ -1,4 +1,4 @@
-[![Dak1 CI/CD](https://github.com/Go5710264/stoloto/actions/workflows/deploument.yml/badge.svg)](https://github.com/Go5710264/stoloto/actions/workflows/deploument.yml)
+[![Dak1 CI/CD](https://github.com/Go5710264/stoloto/actions/workflows/deploument.yml/badge.svg)](https://github.com/Go5710264/stoloto/.github/workflows/deploument.yml)
 
 # Lottery
 
