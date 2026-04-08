@@ -11,8 +11,8 @@ type TUseSelectFieldsProps = {
 type TUseSelectFieldsResult = {
   selectFirstField: number[];
   selectSecondField: number[];
-  setSelectFirstField: React.Dispatch<React.SetStateAction<number[]>>;
-  setSelectSecondField: React.Dispatch<React.SetStateAction<number[]>>;
+  // setSelectFirstField: React.Dispatch<React.SetStateAction<number[]>>;
+  // setSelectSecondField: React.Dispatch<React.SetStateAction<number[]>>;
   generatedRandomSelect: () => void;
 };
 
@@ -25,8 +25,8 @@ export const useSelectFields = ({
   const [selectSecondField, setSelectSecondField] = useState<number[]>([]);
 
   const generatedRandomSelect = (): void => {
-    setSelectFirstField(randomlyGeneratedArr(NUMBERS_FIRST_FIELD));
-    setSelectSecondField(randomlyGeneratedArr(NUMBERS_SECOND_FIELD));
+    // setSelectFirstField(randomlyGeneratedArr(NUMBERS_FIRST_FIELD));
+    // setSelectSecondField(randomlyGeneratedArr(NUMBERS_SECOND_FIELD));
     setIconBlur(true);
 
     setFilledFieldFirst(true);
@@ -36,8 +36,8 @@ export const useSelectFields = ({
   return {
     selectFirstField,
     selectSecondField,
-    setSelectFirstField,
-    setSelectSecondField,
+    // setSelectFirstField,
+    // setSelectSecondField,
     generatedRandomSelect,
   };
 };

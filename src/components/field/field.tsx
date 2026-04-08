@@ -3,21 +3,31 @@ import { ItemField } from '../item-field';
 import styles from './field.module.css';
 import clsx from 'clsx';
 import { TReturnFieldProps } from '../app/types';
+import { useNumberFields, useSetNumberFields } from '../../contexts';
 
 export const Field = ({
   numbers,
   text,
-  handlerClick,
+  fieldType,
   quantity,
   storageField,
   filledField,
   blockRandomGen,
 }: TReturnFieldProps): React.JSX.Element => {
   const [blur, setBlur] = useState(false);
+  const setNumberFields = useSetNumberFields();
+  const numberFields = useNumberFields();
+
   console.log(quantity);
+
   const addNumberArr = (number: number): void => {
     if (storageField?.length === 0) blockRandomGen(true);
-    handlerClick((preArr) => [...preArr, number]);
+
+    setNumberFields((preState) => ({
+      [fieldType]: [...[fieldType], number],
+      ...preState,
+    }));
+
     if (storageField?.length === quantity - 1) {
       setBlur(true);
       filledField(true);

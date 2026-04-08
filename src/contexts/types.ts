@@ -1,4 +1,4 @@
 export type TNumberFields = {
-  firstField: number[];
-  secondField: number[];
+  large: number[];
+  small: number[];
 };

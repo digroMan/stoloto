@@ -17,8 +17,8 @@ export function App(): React.JSX.Element {
     selectFirstField,
     selectSecondField,
     generatedRandomSelect,
-    setSelectFirstField,
-    setSelectSecondField,
+    // setSelectFirstField,
+    // setSelectSecondField,
   } = useSelectFields({
     setIconBlur,
     setFilledFieldFirst,
@@ -55,7 +55,7 @@ export function App(): React.JSX.Element {
               <Field
                 {...getFieldProps({
                   fieldType: 'large',
-                  handlerClick: setSelectFirstField,
+                  // handlerClick: setSelectFirstField,
                   storageField: selectFirstField,
                   filledField: setFilledFieldFirst,
                   blockRandomGen: setIconBlur,
@@ -64,7 +64,7 @@ export function App(): React.JSX.Element {
               <Field
                 {...getFieldProps({
                   fieldType: 'small',
-                  handlerClick: setSelectSecondField,
+                  // handlerClick: setSelectSecondField,
                   storageField: selectSecondField,
                   filledField: setFilledFieldSecond,
                   blockRandomGen: setIconBlur,

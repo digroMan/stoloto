@@ -7,7 +7,10 @@ export const NumberFieldsProvider = ({
 }: {
   children: ReactNode;
 }): React.JSX.Element => {
-  const [numberFields, setNumberFields] = useState<TNumberFields>();
+  const [numberFields, setNumberFields] = useState<TNumberFields>({
+    large: [],
+    small: [],
+  });
 
   return (
     <NumberFieldsContext.Provider value={numberFields}>
