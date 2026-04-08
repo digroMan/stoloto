@@ -1,9 +1,11 @@
 import React from 'react';
 import { TTextField } from '../../utils/types';
+import { TNumberFields } from '../../contexts/types';
+
+type TFieldType = keyof TNumberFields;
 
 export type TGetFieldProps = {
-  fieldType: string;
-  storageField: number[];
+  fieldType: TFieldType;
   filledField: React.Dispatch<React.SetStateAction<boolean>>;
   blockRandomGen: React.Dispatch<React.SetStateAction<boolean>>;
 };

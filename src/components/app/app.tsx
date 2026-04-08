@@ -13,17 +13,13 @@ export function App(): React.JSX.Element {
   const [activateButton, setActivateButton] = useState(false);
   const [iconBlur, setIconBlur] = useState(false);
 
-  const {
-    selectFirstField,
-    selectSecondField,
-    generatedRandomSelect,
-    // setSelectFirstField,
-    // setSelectSecondField,
-  } = useSelectFields({
-    setIconBlur,
-    setFilledFieldFirst,
-    setFilledFieldSecond,
-  });
+  const { selectFirstField, selectSecondField, generatedRandomSelect } = useSelectFields(
+    {
+      setIconBlur,
+      setFilledFieldFirst,
+      setFilledFieldSecond,
+    }
+  );
 
   const { showPrize, losingGame, showResult } = useShowResult({
     selectFirstField,
@@ -55,8 +51,7 @@ export function App(): React.JSX.Element {
               <Field
                 {...getFieldProps({
                   fieldType: 'large',
-                  // handlerClick: setSelectFirstField,
-                  storageField: selectFirstField,
+                  // storageField: selectFirstField,
                   filledField: setFilledFieldFirst,
                   blockRandomGen: setIconBlur,
                 })}
@@ -64,8 +59,7 @@ export function App(): React.JSX.Element {
               <Field
                 {...getFieldProps({
                   fieldType: 'small',
-                  // handlerClick: setSelectSecondField,
-                  storageField: selectSecondField,
+                  // storageField: selectSecondField,
                   filledField: setFilledFieldSecond,
                   blockRandomGen: setIconBlur,
                 })}
