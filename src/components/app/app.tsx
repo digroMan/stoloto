@@ -5,6 +5,7 @@ import { LOSING_PHRASE, WINNING_PHRASE } from '../../utils/constants';
 import { useSelectFields, useShowResult } from '../../hooks';
 import { getFieldProps } from './app.props';
 import { ButtonGenerating } from '../button-generating';
+import { NumberFieldsProvider } from '../../contexts';
 
 export function App(): React.JSX.Element {
   const [filledFieldFirst, setFilledFieldFirst] = useState(false);
@@ -35,51 +36,53 @@ export function App(): React.JSX.Element {
   }, [filledFieldFirst, filledFieldSecond]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.ticket}>
-        <hgroup className={styles.hgroup}>
-          <h2 className={styles.title}>Билет 1</h2>
-          <ButtonGenerating
-            imgPath={'magic-stick.svg'}
-            alt={'Icon'}
-            blur={iconBlur}
-            handlerClick={generatedRandomSelect}
-          />
-        </hgroup>
-        {showPrize ? (
-          <h3 className={styles.congratulation}>{WINNING_PHRASE}</h3>
-        ) : (
-          <div>
-            <Field
-              {...getFieldProps({
-                fieldType: 'large',
-                handlerClick: setSelectFirstField,
-                storageField: selectFirstField,
-                filledField: setFilledFieldFirst,
-                blockRandomGen: setIconBlur,
-              })}
+    <NumberFieldsProvider>
+      <div className={styles.container}>
+        <div className={styles.ticket}>
+          <hgroup className={styles.hgroup}>
+            <h2 className={styles.title}>Билет 1</h2>
+            <ButtonGenerating
+              imgPath={'magic-stick.svg'}
+              alt={'Icon'}
+              blur={iconBlur}
+              handlerClick={generatedRandomSelect}
             />
-            <Field
-              {...getFieldProps({
-                fieldType: 'small',
-                handlerClick: setSelectSecondField,
-                storageField: selectSecondField,
-                filledField: setFilledFieldSecond,
-                blockRandomGen: setIconBlur,
-              })}
-            />
-            {losingGame && <h3 className={styles.losing}>{LOSING_PHRASE}</h3>}
-            <button
-              className={styles.result}
-              disabled={!activateButton}
-              type='button'
-              onClick={showResult}
-            >
-              Показать результат
-            </button>
-          </div>
-        )}
+          </hgroup>
+          {showPrize ? (
+            <h3 className={styles.congratulation}>{WINNING_PHRASE}</h3>
+          ) : (
+            <div>
+              <Field
+                {...getFieldProps({
+                  fieldType: 'large',
+                  handlerClick: setSelectFirstField,
+                  storageField: selectFirstField,
+                  filledField: setFilledFieldFirst,
+                  blockRandomGen: setIconBlur,
+                })}
+              />
+              <Field
+                {...getFieldProps({
+                  fieldType: 'small',
+                  handlerClick: setSelectSecondField,
+                  storageField: selectSecondField,
+                  filledField: setFilledFieldSecond,
+                  blockRandomGen: setIconBlur,
+                })}
+              />
+              {losingGame && <h3 className={styles.losing}>{LOSING_PHRASE}</h3>}
+              <button
+                className={styles.result}
+                disabled={!activateButton}
+                type='button'
+                onClick={showResult}
+              >
+                Показать результат
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </NumberFieldsProvider>
   );
 }
