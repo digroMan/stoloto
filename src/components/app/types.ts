@@ -1,10 +1,11 @@
 import React from 'react';
 import { TTextField } from '../../utils/types';
+import { TNumberFields } from '../../contexts/types';
+
+type TFieldType = keyof TNumberFields;
 
 export type TGetFieldProps = {
-  fieldType: string;
-  handlerClick: React.Dispatch<React.SetStateAction<number[]>>;
-  storageField: number[];
+  fieldType: TFieldType;
   filledField: React.Dispatch<React.SetStateAction<boolean>>;
   blockRandomGen: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -13,7 +14,4 @@ export type TReturnFieldProps = {
   numbers: number[];
   text: TTextField;
   quantity: number;
-} & Pick<
-  TGetFieldProps,
-  'handlerClick' | 'storageField' | 'filledField' | 'blockRandomGen'
->;
+} & TGetFieldProps;

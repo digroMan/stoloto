@@ -1,28 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ItemField } from '../item-field';
 import styles from './field.module.css';
 import clsx from 'clsx';
 import { TReturnFieldProps } from '../app/types';
+import { useNumberFields, useSetNumberFields } from '../../contexts';
 
 export const Field = ({
   numbers,
   text,
-  handlerClick,
+  fieldType,
   quantity,
-  storageField,
   filledField,
   blockRandomGen,
 }: TReturnFieldProps): React.JSX.Element => {
   const [blur, setBlur] = useState(false);
-  console.log(quantity);
+  const setNumberFields = useSetNumberFields();
+  const numberFields = useNumberFields();
+
   const addNumberArr = (number: number): void => {
-    if (storageField?.length === 0) blockRandomGen(true);
-    handlerClick((preArr) => [...preArr, number]);
-    if (storageField?.length === quantity - 1) {
+    if (numberFields[fieldType].length === 0) blockRandomGen(true);
+
+    setNumberFields((preState) => ({
+      ...preState,
+      [fieldType]: [...preState[fieldType], number],
+    }));
+
+    if (numberFields[fieldType].length === quantity - 1) {
       setBlur(true);
       filledField(true);
     }
   };
+
+  useEffect(() => {
+    console.log(numberFields);
+  }, [numberFields]);
 
   return (
     <div className={styles.container}>
@@ -40,7 +51,7 @@ export const Field = ({
             <ItemField
               number={number}
               handlerClick={addNumberArr}
-              generated={storageField?.some((item) => item === number)}
+              generated={numberFields[fieldType].some((item) => item === number)}
             />
           </li>
         ))}
